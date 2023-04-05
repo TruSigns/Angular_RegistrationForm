@@ -1,0 +1,101 @@
+<div class="logo text-center">
+  <img width="300px" src="" alt="" />
+</div>
+
+<div class="registration-form m-3 p-4">
+  <form>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Firstname" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Lastname" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="E-mail" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Mobile</mat-label>
+          <input matInput placeholder="Mobile" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Height</mat-label>
+          <input
+            type="number"
+            formControlName="height"
+            matInput
+            placeholder="height"
+          />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Unit is lbs</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Weight</mat-label>
+          <input
+            type="number"
+            formControlName="weight"
+            matInput
+            placeholder="weight"
+          />
+          <mat-icon matSuffix><i class="fa fa-text-height"></i></mat-icon>
+          <mat-hint>Unit is lbs</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 mt-3">
+        <label id="example-radio-group-label">Gender</label>
+        <mat-radio-group class="example-radio-group">
+          <mat-radio-button
+            class="example-radio-button"
+            *ngFor="let gender of ['Male', 'Female', 'Non-binary']"
+            [value]="gender"
+          >
+            {{ gender }}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>You has selected:</div>
+      </div>
+      <div class="col-md-6 mt-3">
+        <label id="example-radio-group-label">Do you require training?!</label>
+        <mat-radio-group class="example-radio-group">
+          <mat-radio-button
+            class="example-radio-button"
+            *ngFor="let trainerOptions of ['Yes', 'No']"
+            [value]="trainerOptions"
+          >
+            {{ trainerOptions }}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>You has selected:</div>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Favorite food</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
