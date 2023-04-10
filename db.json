@@ -1,3 +1,27 @@
 {
-  "registration": []
+  "registration": [
+    {
+      "firstName": "Max",
+      "lastName": "Steve",
+      "email": "Bootywarrior@gmail.com",
+      "mobile": "919-333-5555",
+      "weight": 260,
+      "height": null,
+      "bmi": "",
+      "bmiResult": "",
+      "gender": [
+        "Male",
+        "Female"
+      ],
+      "trainerOptions": "Yes",
+      "package": "Monthly",
+      "goals": [
+        "Lose Weight",
+        "Gain Muscle"
+      ],
+      "trainedBefore": "Yes",
+      "selectDate": "2023-04-12T04:00:00.000Z",
+      "id": 1
+    }
+  ]
 }

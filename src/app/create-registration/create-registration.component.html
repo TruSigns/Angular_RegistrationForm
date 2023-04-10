@@ -172,8 +172,21 @@
         </mat-form-field>
       </div>
     </div>
-    <button (click)="submitForm()" class="mt-4" mat-raised-button="accent">
+    <button
+      *ngIf="!isUpdateActive"
+      (click)="submitForm()"
+      class="mt-4"
+      mat-raised-button="accent"
+    >
       Submit
+    </button>
+    <button
+      *ngIf="isUpdateActive"
+      (click)="update()"
+      class="mt-4"
+      mat-raised-button="accent"
+    >
+      Update
     </button>
   </form>
 </div>

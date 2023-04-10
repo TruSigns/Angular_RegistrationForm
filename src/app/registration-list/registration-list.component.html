@@ -1,1 +1,136 @@
-<p>registration-list works!</p>
+<div class="d-flex justify-content-between">
+  <button routerLink="/register" mat-raised-button color="accent">
+    <i class="fa fa-arrow-left" aria-hidden="true">Registration Page</i>
+  </button>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. Mia"
+      #input
+    />
+  </mat-form-field>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>FIRSTNAME</th>
+      <td mat-cell *matCellDef="let row">{{ row.firstName }}%</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>LASTNAME</th>
+      <td mat-cell *matCellDef="let row">{{ row.lastName }}</td>
+    </ng-container>
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>EMAIL</th>
+      <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+    </ng-container>
+    <!-- ID Column -->
+    <ng-container matColumnDef="mobile">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>MOBILE</th>
+      <td mat-cell *matCellDef="let row">{{ row.mobile }}</td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>WEIGHT</th>
+      <td mat-cell *matCellDef="let row">{{ row.weight }}%</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="height">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>HEIGHT</th>
+      <td mat-cell *matCellDef="let row">{{ row.height }}</td>
+    </ng-container>
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="bmi">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>BMI</th>
+      <td mat-cell *matCellDef="let row">{{ row.bmi }}</td>
+    </ng-container>
+    <!-- ID Column -->
+    <ng-container matColumnDef="bmiResult">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>BMIRESULT</th>
+      <td mat-cell *matCellDef="let row">{{ row.bmiResult }}</td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>GENDER</th>
+      <td mat-cell *matCellDef="let row">{{ row.gender }}%</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="trainerOptions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TRAINER OPTIONS</th>
+      <td mat-cell *matCellDef="let row">{{ row.trainerOptions }}</td>
+    </ng-container>
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="package">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>PACKAGE</th>
+      <td mat-cell *matCellDef="let row">{{ row.package }}</td>
+    </ng-container>
+    <!-- Progress Column -->
+    <ng-container matColumnDef="goals">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>GOALS</th>
+      <td mat-cell *matCellDef="let row">{{ row.goals }}%</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="trainedBefore">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TRAINED</th>
+      <td mat-cell *matCellDef="let row">{{ row.trainedBefore }}</td>
+    </ng-container>
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="selectDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>SELECT DATE</th>
+      <td mat-cell *matCellDef="let row">{{ row.package }}</td>
+    </ng-container>
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ACTION</th>
+      <td mat-cell *matCellDef="let row">
+        <button [routerLink]="['detail', 'row.id']" mat-button color="warm">
+          <i class="fa fa-eye"></i>
+        </button>
+        <button (click)="edit(row.id)" mat-button color="accent">
+          <i class="fa fa-pencil"></i>
+        </button>
+        <button (click)="delete(row.id)" mat-button color="primary">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        No data matching the filter "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
+</div>
